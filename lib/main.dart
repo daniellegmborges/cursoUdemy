@@ -1,23 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:test1/src/app_aula58.dart';
 
-void main() {
+void main () {
   runApp(
-    MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: AppBar(
-          title: const Text('I Am Rich'),
-          centerTitle: true,
-          style
-          backgroundColor: Colors.blueGrey[900],
-        ),
-        body: const Center(
-          child: Image(
-            image: AssetImage('images/diamond.png'),
-          ),
-        ),
-      ),
-    ),
+    const AppAula58(),
   );
 }
-
