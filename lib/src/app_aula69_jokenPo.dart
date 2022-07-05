@@ -20,6 +20,7 @@ class Jogo extends StatefulWidget {
 }
 
 
+
 class _JogoState extends State<Jogo> {
 
     var _imagemApp = AssetImage("images/jokenPo_padrao.png");
@@ -33,6 +34,7 @@ class _JogoState extends State<Jogo> {
 
     print("Escolha do App: " + escolhaApp);
     print("Escolha do usuario: " + escolhaUsuario);
+
 
 
     //Exibição da imagem escolhida pelo App
@@ -53,6 +55,7 @@ class _JogoState extends State<Jogo> {
         });
         break;
     }
+
 
 
     //Validação do ganhador
@@ -90,7 +93,7 @@ class _JogoState extends State<Jogo> {
       appBar: AppBar(
         title: Text("JokenPo"),
         centerTitle: true,
-        backgroundColor: Colors.amber[400],
+        backgroundColor: Colors.amber[600],
       ),
       
       body: Column(
@@ -115,6 +118,7 @@ class _JogoState extends State<Jogo> {
             ),
           ),
         
+
         //imagem do aplicativo
         Image(image: this._imagemApp),
 
