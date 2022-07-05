@@ -89,6 +89,8 @@ class _JogoState extends State<Jogo> {
     return Scaffold(
       appBar: AppBar(
         title: Text("JokenPo"),
+        centerTitle: true,
+        backgroundColor: Colors.amber[400],
       ),
       
       body: Column(
@@ -101,13 +103,14 @@ class _JogoState extends State<Jogo> {
           
           //para criar um texto com espaçamento dentro da coluna
           Padding(
-            padding: EdgeInsets.only(top: 32, bottom: 16),
+            padding: EdgeInsets.only(top: 40, bottom: 16),
             child: Text(
               "Escolha do App",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold
+                fontSize: 21,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(250, 180, 90, 120)
               ),
             ),
           ),
@@ -117,14 +120,15 @@ class _JogoState extends State<Jogo> {
 
         
           Padding(
-            padding: EdgeInsets.only(top: 32, bottom: 16),
+            padding: EdgeInsets.only(top: 100, bottom: 16),
             child: Text(
           //mensagem de escolha do app "Escolha uma opção abaixo"
               this._mensagem,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 180, 90, 120)
               ),
             ),
           ),
