@@ -23,6 +23,48 @@ class _HomeState extends State<Home> {
 
   TextEditingController _controllerAlcool = TextEditingController();
   TextEditingController _controllerGasolina = TextEditingController();
+  String _textoResultado = "";
+  
+
+  void _limparCampos(){
+    _controllerAlcool.text = "";
+    _controllerGasolina.text = "";
+  }
+
+
+  void _calcular(){
+    
+    double? precoAlcool = double.tryParse( _controllerAlcool.text );
+    double? precoGasolina = double.tryParse( _controllerGasolina.text );
+  
+      if (precoAlcool == null || precoGasolina == null){
+        setState(() {
+          _textoResultado = "Número inválido, digite números maiores que 0 e utilizando (.)";
+        });
+      }else{
+
+
+      //Se o preço do álcool divido pelo preço da gasolina for >= a 0.7 é melhor abastecer com gasolina, senão é melhor utilizar álcool
+
+
+        if ( (precoAlcool/precoGasolina) >=0.7 ) {
+          setState(() {
+            _textoResultado = "Melhor abastecer com gasolina";
+          });
+
+        }else{
+          setState(() {
+            _textoResultado = "Melhor abastecer com alcool";
+          });
+        }
+
+        _limparCampos();
+
+      }
+  }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +73,21 @@ class _HomeState extends State<Home> {
         title: Text("Álcool ou Gasolina"),
         backgroundColor: Colors.blue,
       ),
+
+
       body: Container(
-        child: SingleChildScrollView(
+        child: SingleChildScrollView( //para poder rolar/scroll a tela do app
           padding: EdgeInsets.all(32),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.stretch, //para o conteudo ocupar toda a tela de forma esticada
+            
+            
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(bottom: 32),
                 child: Image.asset("images/logoAlcoolOuGasolina.png"),
               ),
+              
               Padding(
                 padding: EdgeInsets.only(bottom: 10),
                 child: Text(
@@ -51,6 +98,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
+              
               TextField(
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
@@ -59,8 +107,10 @@ class _HomeState extends State<Home> {
                 style: TextStyle(
                     fontSize: 22
                 ),
-                controller: _controllerAlcool,
+                controller: _controllerAlcool, //para capturar o que o usuario digitou
               ),
+              
+              
               TextField(
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
@@ -69,8 +119,9 @@ class _HomeState extends State<Home> {
                 style: TextStyle(
                     fontSize: 22
                 ),
-                controller: _controllerGasolina,
+                controller: _controllerGasolina, //para capturar o que o usuario digitou
               ),
+              
               Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: RaisedButton(
@@ -86,10 +137,11 @@ class _HomeState extends State<Home> {
                     onPressed: (){}
                 ),
               ),
+
               Padding(
-                padding: EdgeInsets.only(top: 20),
+                padding: EdgeInsets.only(top: 40),
                 child: Text(
-                  "Resultado",
+                  "Resutado" + _textoResultado,
                   style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold
@@ -103,5 +155,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-

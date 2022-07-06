@@ -23,6 +23,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+
   var _frases = [
     "Sou apenas um pequeno planeta que se perde diariamente em todo o seu universo.",
     "Novas amizades serão sempre bem-vindas para darem cor e alegria ao meu dia a dia.",
@@ -32,6 +33,7 @@ class _HomeState extends State<Home> {
 
   var _fraseGerada = "Clique abaixo para gerar uma frase!";
 
+
   void _gerarFrase(){
 
     // 0, 1 , 2, 3
@@ -40,7 +42,6 @@ class _HomeState extends State<Home> {
     setState(() {
       _fraseGerada = _frases[ numeroSorteado ];
     });
-
   }
 
   @override
