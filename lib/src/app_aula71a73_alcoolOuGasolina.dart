@@ -58,7 +58,7 @@ class _HomeState extends State<Home> {
           });
         }
 
-        _limparCampos();
+        //_limparCampos();
 
       }
   }
@@ -138,14 +138,16 @@ class _HomeState extends State<Home> {
                           fontSize: 20
                       ),
                     ),
-                    onPressed: (){}
+                    onPressed: (){
+                      _calcular();
+                    }
                 ),
               ),
 
               Padding(
                 padding: EdgeInsets.only(top: 40),
                 child: Text(
-                  "Resutado" + _textoResultado,
+                  "Resultado: " + _textoResultado,
                   style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold

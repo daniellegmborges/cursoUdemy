@@ -24,7 +24,8 @@ class _HomeState extends State<Home> {
   TextEditingController _controllerNomeCompleto = TextEditingController();
   TextEditingController _controllerEmail = TextEditingController();
 
-  var _escolhaUsuario = "";
+  int? _escolhaUsuario;
+
 
   @override
   Widget build(BuildContext context) {
@@ -82,8 +83,9 @@ class _HomeState extends State<Home> {
               title: Text("Masculino") ,
                 value: 1,
                 groupValue: _escolhaUsuario,
-                onChanged: (var escolha){
+                onChanged: (int? escolha){
                   setState(() {
+                      _escolhaUsuario = escolha;
                   });
                 }
               ),
@@ -94,8 +96,9 @@ class _HomeState extends State<Home> {
               title: Text("Feminino") ,
                 value: 2,
                 groupValue: _escolhaUsuario,
-                onChanged: (var escolha){
+                onChanged: (int? escolha){
                   setState(() {
+                      _escolhaUsuario = escolha;
                   });
                 }
               ),
