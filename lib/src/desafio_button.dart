@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class AppAula74 extends StatelessWidget {
   const AppAula74({Key? key}) : super(key: key);
@@ -17,10 +16,8 @@ class AppAula74 extends StatelessWidget {
 class CustomButtonWidget extends StatelessWidget {
   final VoidCallback onPressed; //nao funcionou sem, mas nao entendi
   final String title;
-  final VoidCallback ButtonStyle;
 
-  const CustomButtonWidget(
-      {Key? key, required this.onPressed, required this.title, required ButtonStyle})
+  CustomButtonWidget({Key? key, required this.onPressed, required this.title})
       : super(key: key);
 
   @override
@@ -28,7 +25,6 @@ class CustomButtonWidget extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       child: Text(title),
-      style: ButtonStyle()),
     );
   }
 }
@@ -181,16 +177,15 @@ class _HomeState extends State<Home> {
               ),
             ),
             CustomButtonWidget(
-                onPressed: () {},
-                title: "Salvar",
-                ButtonStyle: Colors.blue,
-                // style: ButtonStyle(
-                //     backgroundColor: MaterialStateProperty.all<Color>(Colors
-                //         .blue) //definicao de cor para todos os estados do botao: erro, clicado, etc
-              )
-            ],
-          ),
+              onPressed: () {},
+              title: "Salvar",
+              // style: ButtonStyle(
+              //     backgroundColor: MaterialStateProperty.all<Color>(Colors
+              //         .blue) //definicao de cor para todos os estados do botao: erro, clicado, etc
+            )
+          ],
         ),
+      ),
     );
   }
 }
