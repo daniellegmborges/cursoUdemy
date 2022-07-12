@@ -6,12 +6,11 @@ class AppAula65 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-    home: Home(),
-    debugShowCheckedModeBanner: false,
-  );
-}
+      home: Home(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }
 
 class Home extends StatefulWidget {
@@ -19,11 +18,7 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-
-
 class _HomeState extends State<Home> {
-
-
   var _frases = [
     "Sou apenas um pequeno planeta que se perde diariamente em todo o seu universo.",
     "Novas amizades serão sempre bem-vindas para darem cor e alegria ao meu dia a dia.",
@@ -33,15 +28,15 @@ class _HomeState extends State<Home> {
 
   var _fraseGerada = "Clique abaixo para gerar uma frase!";
 
-
-  void _gerarFrase(){
-
+  void _gerarFrase() {
     // 0, 1 , 2, 3
-    var numeroSorteado = Random().nextInt( _frases.length );
+    var numeroSorteado = Random().nextInt(_frases.length);
 
-    setState(() {
-      _fraseGerada = _frases[ numeroSorteado ];
-    });
+    setState(
+      () {
+        _fraseGerada = _frases[numeroSorteado];
+      },
+    );
   }
 
   @override
@@ -69,8 +64,7 @@ class _HomeState extends State<Home> {
                 style: TextStyle(
                     fontSize: 25,
                     fontStyle: FontStyle.italic,
-                    color: Colors.black
-                ),
+                    color: Colors.black),
               ),
               RaisedButton(
                 child: Text(
@@ -78,8 +72,7 @@ class _HomeState extends State<Home> {
                   style: TextStyle(
                       fontSize: 25,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold
-                  ),
+                      fontWeight: FontWeight.bold),
                 ),
                 color: Colors.green,
                 onPressed: _gerarFrase,

@@ -1,37 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/material_state.dart';
 
-class AppDesafio extends StatelessWidget {
-  const AppDesafio({Key? key}) : super(key: key);
+class AppAula74 extends StatelessWidget {
+  const AppAula74({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Home(),
-    );
-  }
-}
-
-//classe do botao salvar, com todos os requerimentos
-class CustomButtonWidget extends StatelessWidget {
-  final VoidCallback onPressed; //nao funcionou sem, mas nao entendi
-  final Text title;
-  final ButtonStyle estilo;
-
-  const CustomButtonWidget(
-      {Key? key,
-      required this.onPressed,
-      required this.title,
-      required this.estilo})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: title,
-      style: estilo,
     );
   }
 }
@@ -57,9 +33,11 @@ class _HomeState extends State<Home> {
     _controllerNomeCompleto.text = "";
     _controllerEmail.text = "";
 
-    setState(() {
-      "Obrigada por participar";
-    });
+    setState(
+      () {
+        "Obrigada por participar";
+      },
+    );
   }
 
   @override
@@ -109,9 +87,58 @@ class _HomeState extends State<Home> {
                     _escolhaUsuarioRemember = valor;
                   });
                 }),
+            RadioListTile(
+              title: const Text("Masculino"),
+              value: 1,
+              activeColor: Colors.purple[300],
+              groupValue: _escolhaUsuario,
+              onChanged: (int? escolha) {
+                setState(
+                  () {
+                    _escolhaUsuario = escolha;
+                  },
+                );
+              },
+            ),
+            RadioListTile(
+              title: const Text("Feminino"),
+              value: 2,
+              activeColor: Colors.purple[300],
+              groupValue: _escolhaUsuario,
+              onChanged: (int? escolha) {
+                setState(
+                  () {
+                    _escolhaUsuario = escolha;
+                  },
+                );
+              },
+            ),
+            Slider(
+              value: valorIdade,
+              max: 100,
+              label: labelIdade.toString(),
+              divisions: 10,
+              activeColor: Colors.purple[300],
+              inactiveColor: Colors.black26,
+              onChanged: (double novoValorIdade) {
+                setState(
+                  () {
+                    valorIdade = novoValorIdade;
+                    labelIdade = novoValorIdade.toString();
+                  },
+                );
+              },
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: ElevatedButton(
+                // style: ButtonStyle(
+
+                // ),
+                // color: Colors.purple[900],
+                // textColor: Colors.white,
+                // padding: const EdgeInsets.all(15),
+
                 child: const Text(
                   "Salvar",
                   style: TextStyle(fontSize: 20),
@@ -124,81 +151,17 @@ class _HomeState extends State<Home> {
                 },
               ),
             ),
-            //const SizedBox(height: 10),
-
-//GestureDetector( - nao possui animações
-            InkWell(
-              onTap: () {
-                setState(
-                  () {
-                    _mensagem = "Feito!";
-                  },
-                );
-              },
-              child: Ink(
-                height: 34,
-                decoration: const BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.all(Radius.circular(4)),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 3,
-                        offset: Offset(0, 1),
-                        spreadRadius: 0)
-                  ],
-                ),
-                child: const Center(
-                  child: Text(
-                    "Salvar 2",
-                    textAlign: TextAlign.center,
-                    //textAlignVertical: TextAlignVertical.center,
-                    textDirection: TextDirection.rtl,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: '.SF UI Text',
-                        color: Colors.white),
-                  ),
-                ),
-              ),
-            ),
-
-            //Teste do primeiro metodo com classe
-            CustomButtonWidget(
-                onPressed: () {},
-                title: const Text(
-                  "Salvar 3",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                estilo: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue[700]),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0),
-                    ),
-                  ),
-                )
-                // style: ButtonStyle(
-                //   backgroundColor: MaterialStateProperty.all(Colors.purple),
-                // ),
-                ),
             Padding(
-              padding: const EdgeInsets.only(top: 5),
+              padding: const EdgeInsets.only(top: 20),
               child: Text(
                 _mensagem ?? "",
                 style:
                     const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-            ),
+            )
           ],
         ),
       ),
     );
   }
 }
-
-//adicionar sombra, borda e alterar formato do texto

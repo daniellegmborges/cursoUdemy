@@ -32,21 +32,27 @@ class _HomeState extends State<Home> {
     double? precoGasolina = double.tryParse(_controllerGasolina.text);
 
     if (precoAlcool == null || precoGasolina == null) {
-      setState(() {
-        _textoResultado =
-            "Número inválido, digite números maiores que 0 e utilizando (.)";
-      });
+      setState(
+        () {
+          _textoResultado =
+              "Número inválido, digite números maiores que 0 e utilizando (.)";
+        },
+      );
     } else {
       //Se o preço do álcool divido pelo preço da gasolina for >= a 0.7 é melhor abastecer com gasolina, senão é melhor utilizar álcool
 
       if ((precoAlcool / precoGasolina) >= 0.7) {
-        setState(() {
-          _textoResultado = "Melhor abastecer com gasolina";
-        });
+        setState(
+          () {
+            _textoResultado = "Melhor abastecer com gasolina";
+          },
+        );
       } else {
-        setState(() {
-          _textoResultado = "Melhor abastecer com alcool";
-        });
+        setState(
+          () {
+            _textoResultado = "Melhor abastecer com alcool";
+          },
+        );
       }
 
       //_limparCampos();
@@ -100,16 +106,17 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: RaisedButton(
-                    color: Colors.blue,
-                    textColor: Colors.white,
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      "Calcular",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    onPressed: () {
-                      _calcular();
-                    }),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(15),
+                  child: Text(
+                    "Calcular",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onPressed: () {
+                    _calcular();
+                  },
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 40),

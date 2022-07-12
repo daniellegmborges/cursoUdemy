@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/material/material_state.dart';
 
-class AppAula74 extends StatelessWidget {
-  const AppAula74({Key? key}) : super(key: key);
+class AppLucas extends StatelessWidget {
+  const AppLucas({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class _HomeState extends State<Home> {
     _controllerEmail.text = "";
 
     setState(() {
-      "Obrigada por participar";
+      "Obrigada!";
     });
   }
 
@@ -45,14 +46,14 @@ class _HomeState extends State<Home> {
         title: const Text(
           "Novo App Cadastro",
         ),
-        backgroundColor: Colors.purple[900],
+        backgroundColor: Colors.blue[900],
       ),
       body: SingleChildScrollView(
         //para poder rolar/scroll a tela do app
         padding: const EdgeInsets.all(32),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment
-              .stretch, //para o conteudo ocupar toda a tela de forma esticada
+          //para o conteudo ocupar toda a tela de forma esticada
+          crossAxisAlignment: CrossAxisAlignment.stretch,
 
           children: <Widget>[
             const Padding(
@@ -78,76 +79,51 @@ class _HomeState extends State<Home> {
             ),
             SwitchListTile(
                 title: const Text("Remember me?"),
-                activeColor: Colors.purple[400],
+                activeColor: Colors.green[700],
                 value: _escolhaUsuarioRemember,
                 onChanged: (bool valor) {
                   setState(() {
                     _escolhaUsuarioRemember = valor;
                   });
                 }),
-            RadioListTile(
-                title: const Text("Masculino"),
-                value: 1,
-                activeColor: Colors.purple[300],
-                groupValue: _escolhaUsuario,
-                onChanged: (int? escolha) {
-                  setState(() {
-                    _escolhaUsuario = escolha;
-                  });
-                }),
-            RadioListTile(
-                title: const Text("Feminino"),
-                value: 2,
-                activeColor: Colors.purple[300],
-                groupValue: _escolhaUsuario,
-                onChanged: (int? escolha) {
-                  setState(() {
-                    _escolhaUsuario = escolha;
-                  });
-                }),
-            Slider(
-                value: valorIdade,
-                max: 100,
-                label: labelIdade.toString(),
-                divisions: 10,
-                activeColor: Colors.purple[300],
-                inactiveColor: Colors.black26,
-                onChanged: (double novoValorIdade) {
-                  setState(() {
-                    valorIdade = novoValorIdade;
-                    labelIdade = novoValorIdade.toString();
-                  });
-                }),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: ElevatedButton(
-                // style: ButtonStyle(
 
-                // ),
-                // color: Colors.purple[900],
-                // textColor: Colors.white,
-                // padding: const EdgeInsets.all(15),
-
-                child: const Text(
-                  "Salvar",
-                  style: TextStyle(fontSize: 20),
+//GestureDetector(
+            InkWell(
+              onTap: () {
+                setState(() {
+                  _mensagem = "Feito!";
+                });
+              },
+              child: Ink(
+                height: 34,
+                decoration: const BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.all(Radius.circular(4)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 3,
+                          offset: Offset(0, 1),
+                          spreadRadius: 0)
+                    ]),
+                child: Column(
+                  children: const <Widget>[
+                    SizedBox(height: 10),
+                    Text(
+                      "Salvar",
+                      textAlign: TextAlign.center,
+                      //textAlignVertical: TextAlignVertical.center,
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: '.SF UI Text',
+                          color: Colors.white),
+                    ),
+                  ],
                 ),
-                //onPressed: () {}),
-
-                onPressed: () {
-                  _limparCampos();
-                  _mensagem = "Obrigada";
-                },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Text(
-                _mensagem ?? "",
-                style:
-                    const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
-            )
           ],
         ),
       ),
