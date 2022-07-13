@@ -56,4 +56,7 @@ flutter:
   uses-material-design: true
   assets:
     - images/
-    - images/ATMConsultoria/
+    - images/ATMConsultoria/ 
+    - images/CaraOuCoroa/
+    - images/JokenPo/
+    - images/AppLucas/

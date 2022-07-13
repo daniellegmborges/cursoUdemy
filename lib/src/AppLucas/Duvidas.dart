@@ -1,0 +1,1 @@
+//Como colocar o texto mais centralizado, utilizando row e nao column
