@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:test1/src/AppLucas/Tela01_Login.dart'; //para rodar no app, alterar para qual aula deve ser lida
+import 'package:test1/src/Aulas/aula94_page_listas_future.dart';
 
 void main() {
   runApp(
-    const AppLucas(), //para rodar no app, alterar para qual aula deve ser lida
+    const AppAula94(),
   );
 }

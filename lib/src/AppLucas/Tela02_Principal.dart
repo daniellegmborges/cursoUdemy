@@ -13,26 +13,6 @@ class TelaPrincipal extends StatefulWidget {
 }
 
 class _TelaPrincipalState extends State<TelaPrincipal> {
-  // void _abrirNoticias() {
-  //   Navigator.push(
-  //       context, MaterialPageRoute(builder: (context) => TelaNoticias()));
-  // }
-
-  // void _abrirMedicos() {
-  //   Navigator.push(
-  //       context, MaterialPageRoute(builder: (context) => TelaMedicos()));
-  // }
-
-  // void _abrirDicas() {
-  //   Navigator.push(
-  //       context, MaterialPageRoute(builder: (context) => TelaDicas()));
-  // }
-
-  // void _abrirGames() {
-  //   Navigator.push(
-  //       context, MaterialPageRoute(builder: (context) => TelaGames()));
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
