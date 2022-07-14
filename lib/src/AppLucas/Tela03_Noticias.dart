@@ -12,7 +12,7 @@ class _TelaNoticiasState extends State<TelaNoticias> {
 
   void _carregarlistaNoticias() {
     _listaNoticias = [];
-    for (int i = 0; i <= 10; i++) {
+    for (int i = 0; i <= 20; i++) {
       Map<String, dynamic> item = Map();
       item["titulo"] = "Noticia ${i} - Título da notícia";
       item["descricao"] = "Descrição ${i}: descrição da notícia";
@@ -38,6 +38,23 @@ class _TelaNoticiasState extends State<TelaNoticias> {
             //print("item ${ _listaNoticias[indice]["titulo"] }");
 
             return ListTile(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text(_listaNoticias[indice]["titulo"]),
+                      titlePadding: const EdgeInsets.all(10),
+                      titleTextStyle: const TextStyle(fontSize: 20),
+                      content: Text(_listaNoticias[indice]["descricao"]),
+                      actions: <Widget>[
+                        TextButton(onPressed: null, child: Text("Ok"))
+                      ],
+                    );
+                  },
+                );
+              },
+              // onLongPress: () {},
               title: Text(_listaNoticias[indice]["titulo"]),
               subtitle: Text(_listaNoticias[indice]["descricao"]),
             );

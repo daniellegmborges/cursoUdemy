@@ -3,7 +3,7 @@ import 'package:test1/src/AppLucas/Tela03_Noticias.dart';
 import 'Tela03_Noticias.dart';
 import 'Tela04_Dicas.dart';
 import 'Tela05_Medicos.dart';
-import 'Tela06_Games.dart';
+import 'Tela06_Videos.dart';
 
 class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({Key? key}) : super(key: key);
@@ -17,8 +17,19 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.grey, opacity: 0.9),
         title: const Text("App Lukita"),
         backgroundColor: Colors.yellow[800],
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.search),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.account_circle),
+          ),
+        ],
       ),
       body: Container(
         padding: EdgeInsets.all(10),
@@ -81,7 +92,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                     "Nossas Dicas",
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
-                  Text("Jogos Favoritos",
+                  Text("Vídeos Indicados",
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                 ],
@@ -103,10 +114,10 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, "/TelaGames");
+                      Navigator.pushNamed(context, "/TelaVideos");
                     },
                     child: Image.asset(
-                      "images/AppLucas/BotaoGames.png",
+                      "images/AppLucas/BotaoVideos.png",
                       scale: 3.8,
                     ),
                   )

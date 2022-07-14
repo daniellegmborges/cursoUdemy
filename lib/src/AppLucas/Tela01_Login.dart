@@ -3,7 +3,7 @@ import 'package:test1/src/AppLucas/Tela02_Principal.dart';
 import 'package:test1/src/AppLucas/Tela03_Noticias.dart';
 import 'package:test1/src/AppLucas/Tela04_Dicas.dart';
 import 'package:test1/src/AppLucas/Tela05_Medicos.dart';
-import 'package:test1/src/AppLucas/Tela06_Games.dart';
+import 'package:test1/src/AppLucas/Tela06_Videos.dart';
 
 class AppLucas extends StatelessWidget {
   const AppLucas({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class AppLucas extends StatelessWidget {
         "/TelaNoticias": (context) => TelaNoticias(),
         "/TelaDicas": (context) => TelaDicas(),
         "/TelaMedicos": (context) => TelaMedicos(),
-        "/TelaGames": (context) => TelaGames(),
+        "/TelaVideos": (context) => TelaVideos(),
       },
       debugShowCheckedModeBanner: false,
       //home: Home(),
