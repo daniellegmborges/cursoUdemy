@@ -8,12 +8,10 @@ class Inscricao extends StatefulWidget {
 class _InscricaoState extends State<Inscricao> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(
-          "Inscrição",
-          style: TextStyle(fontSize: 25),
-        ),
+    return const Center(
+      child: Text(
+        "Inscrição",
+        style: TextStyle(fontSize: 25),
       ),
     );
   }
