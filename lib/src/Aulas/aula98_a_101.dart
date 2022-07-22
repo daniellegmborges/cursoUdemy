@@ -6,7 +6,7 @@ class AppAula98 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Home(),
     );
@@ -56,18 +56,27 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text("Manipulação de dados"),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.purple,
+        foregroundColor: Colors.white,
+        elevation: 6,
+        icon: const Icon(Icons.add_shopping_cart),
+        label: const Text("Adicionar"),
+        onPressed: () {},
+      ),
       body: Container(
-        padding: EdgeInsets.all(32),
+        padding: const EdgeInsets.all(32),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
               _textoSalvo,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
             TextField(
               keyboardType: TextInputType.text,
-              decoration: InputDecoration(labelText: "Digite algo"),
+              decoration: const InputDecoration(labelText: "Digite algo"),
               controller: _controllerCampo,
             ),
             Row(
@@ -75,35 +84,35 @@ class _HomeState extends State<Home> {
                 RaisedButton(
                   color: Colors.blue,
                   textColor: Colors.white,
-                  child: Text(
+                  onPressed: _salvar,
+                  child: const Text(
                     "Salvar",
                     style: TextStyle(
                       fontSize: 20,
                     ),
                   ),
-                  onPressed: _salvar,
                 ),
                 RaisedButton(
                   color: Colors.blue,
                   textColor: Colors.white,
-                  child: Text(
+                  onPressed: _recuperar,
+                  child: const Text(
                     "Recuperar",
                     style: TextStyle(
                       fontSize: 20,
                     ),
                   ),
-                  onPressed: _recuperar,
                 ),
                 RaisedButton(
                   color: Colors.blue,
                   textColor: Colors.white,
-                  child: Text(
+                  onPressed: _remover,
+                  child: const Text(
                     "Remover",
                     style: TextStyle(
                       fontSize: 20,
                     ),
                   ),
-                  onPressed: _remover,
                 ),
               ],
             ),

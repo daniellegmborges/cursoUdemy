@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class AppAula65 extends StatelessWidget {
-  const AppAula65({Key? key}) : super(key: key);
+class AppAula66 extends StatelessWidget {
+  const AppAula66({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
